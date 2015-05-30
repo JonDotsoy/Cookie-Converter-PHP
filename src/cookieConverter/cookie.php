@@ -59,6 +59,18 @@ class cookie {
     return implode("; ", $strReturn);
   }
 
+  public function toStringOnlyCookie() {
+    $strReturn = [];
+
+    foreach ($this->cookies as $name => $cookie) {
+      if (isset($name) && $name != "") {
+        $strReturn[] = $name . "=" . $cookie;
+      }
+    }
+
+    return implode("; ", $strReturn);
+  }
+
   public function setExpires($line_time) {
     $this->expires = \strtotime($line_time);
   }
